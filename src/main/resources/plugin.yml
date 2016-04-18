@@ -1,0 +1,9 @@
+name: EraClock
+main: fr.azuxul.eraclock.EraClock
+version: 1.0.0
+author: Azuxul
+website: https://azuxul.fr/
+commands:
+  clock:
+    permission: eraclock.commands
+    usage: /clock
