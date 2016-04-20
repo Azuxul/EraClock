@@ -25,12 +25,14 @@ import java.util.UUID;
  */
 public class EraClock extends JavaPlugin implements Listener {
 
-    private PluginEraClock pluginEraClock;
+    private static PluginEraClock pluginEraClock;
 
     @Override
     public void onEnable() {
 
-        this.pluginEraClock = new PluginEraClock(getServer());
+        synchronized (this) {
+            pluginEraClock = new PluginEraClock(getServer());
+        }
 
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginCommand("clock").setExecutor(new CommandClock(pluginEraClock));
@@ -67,4 +69,7 @@ public class EraClock extends JavaPlugin implements Listener {
         }
     }
 
+    public static PluginEraClock getPluginEraClock() {
+        return pluginEraClock;
+    }
 }
