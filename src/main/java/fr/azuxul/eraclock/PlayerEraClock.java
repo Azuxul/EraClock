@@ -62,26 +62,24 @@ public class PlayerEraClock {
 
     public void switchPlayerVisibilty() {
 
-        PlayerEraClock playerEraClock = pluginEraClock.getPlayers().get(player.getUniqueId());
-
-        long remainingTimeBeforeChange = playerEraClock.getRemainingTimeBeforeChange();
+        long remainingTimeBeforeChange = getRemainingTimeBeforeChange();
 
         if (remainingTimeBeforeChange <= 0) {
-            if (playerEraClock.isPlayerVisible()) {
+            if (isPlayerVisible()) {
 
-                playerEraClock.setPlayerVisible(false);
+                setPlayerVisible(false);
 
-                pluginEraClock.getServer().getOnlinePlayers().stream().filter(p -> !p.getUniqueId().equals(playerEraClock.getUuid())).forEach(player::hidePlayer);
+                pluginEraClock.getServer().getOnlinePlayers().stream().filter(p -> !p.getUniqueId().equals(getUuid())).forEach(player::hidePlayer);
                 player.sendMessage("§cLes joueurs viennent de disparaître !");
             } else {
 
-                playerEraClock.setPlayerVisible(true);
+                setPlayerVisible(true);
 
-                pluginEraClock.getServer().getOnlinePlayers().stream().filter(p -> !p.getUniqueId().equals(playerEraClock.getUuid())).forEach(player::showPlayer);
+                pluginEraClock.getServer().getOnlinePlayers().stream().filter(p -> !p.getUniqueId().equals(getUuid())).forEach(player::showPlayer);
                 player.sendMessage("§aLes joueurs viennent de réapparaitre !");
             }
 
-            playerEraClock.setChangeVisibilityTime(new Date().getTime());
+            setChangeVisibilityTime(new Date().getTime());
         } else {
             player.sendMessage("§cMerci de patienter " + ((double) remainingTimeBeforeChange / 1000) + " secondes avant de réutiliser cette option !");
         }
