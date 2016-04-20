@@ -8,7 +8,9 @@ This plugin work in 1.8.8.
 ## Installation
 Clone project with `git clone`
 
-And compile with `mvn clean package`
+For instal, use `mvn clean install`
+
+If you just want compile plugin for server use, use `mvn clean package`
 
 ## Licence
 This software is published under the CeCILL-B license. See the `LICENSE` file for details.
