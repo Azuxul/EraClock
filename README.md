@@ -11,5 +11,5 @@ For instal, use `mvn clean install`
 
 If you just want compile plugin for server use, use `mvn clean package`
 
-## Licence
+## License
 This software is published under the CeCILL-B license. See the `LICENSE` file for details.
